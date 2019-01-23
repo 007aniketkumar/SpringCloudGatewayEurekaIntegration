@@ -36,7 +36,8 @@ public class SpringCloudGatewayEurekaIntegrationApplication {
 	        return builder.routes().
 	        		route(r->
 	        		 r.path("/student/**")
-	        		 .and().query("mdexch", "abc")
+	        		 .and().query("anyFiltername", "abc")// this can be any filter say a student id ,which helps in routinf of service request
+				
 	        		 .filters(f-> f.rewritePath("/student/(?<segment>.*)", "/getStudentDetails/$\\{segment}"))
 	        		 
 	        		.uri("lb://student")
